@@ -24,4 +24,5 @@ public abstract class Debtor implements Serializable {
         return name+":\t"+getMoneyOwe();
     }
 
+
 }

@@ -6,11 +6,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.app.ListActivity;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -25,7 +27,9 @@ public class MainActivity extends ListActivity{
 
     Button contact;
     int counter;
-    List<Debtor> Debtors = new DataCollection().getDebtors();
+    DataCollection dataCollection =new DataCollection();
+    List<Debtor> Debtors = dataCollection.getDebtors();
+    int totalAmount = dataCollection.getTotal();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +41,17 @@ public class MainActivity extends ListActivity{
         ,Debtors);
         setListAdapter(adaptor);
 
-
         setContentView(R.layout.activity_main);
+
+        if(totalAmount>0){
+            TextView tv = (TextView) findViewById(R.id.textView);
+            tv.setText("they owe");
+        }
+
+        TextView money = (TextView) findViewById(R.id.textView2);
+        Log.d("somethingasdf", "" + money);
+
+        money.setText(""+totalAmount);
 
         contact = (Button) findViewById(R.id.Contact);
         contact.setOnClickListener(new OnClickListener() {

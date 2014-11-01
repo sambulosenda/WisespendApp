@@ -2,6 +2,7 @@ package me.wisespend.wisespend;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,11 +38,19 @@ public class DetailArrayAdaptor extends ArrayAdapter<Debtor> {
 //        ImageView image = (ImageView) view.findViewById(R.id.ivFlowerImage);
 //        image.setImageResource(flower.getImageResource());
 
-        TextView tv = (TextView) view.findViewById(R.id.months_list);
-        tv.setText(debtor.getName());
-        TextView money = (TextView) view.findViewById(R.id.money);
-        money.setText(""+(debtor.getMoneyOwe()));
+            TextView tv = (TextView) view.findViewById(R.id.months_list);
+            tv.setText(debtor.getName());
+            TextView money = (TextView) view.findViewById(R.id.money);
+
+            money.setText("" + (debtor.getMoneyOwe()));
+
+            if(debtor.getMoneyOwe()<0){
+                money.setTextColor(Color.RED);
+            }
+            else money.setTextColor(Color.BLUE);
         return view;
+
+
     }
 }
 
