@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Wisespend</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">You owe: </string>
+    <string name="choose">Please choose from the following options</string>
     <string name="action_settings">Settings</string>
 
 </resources>
