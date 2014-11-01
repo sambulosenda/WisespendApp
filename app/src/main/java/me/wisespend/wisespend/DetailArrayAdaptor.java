@@ -39,7 +39,8 @@ public class DetailArrayAdaptor extends ArrayAdapter<Debtor> {
 
         TextView tv = (TextView) view.findViewById(R.id.months_list);
         tv.setText(debtor.getName());
-
+        TextView money = (TextView) view.findViewById(R.id.money);
+        money.setText(""+(debtor.getMoneyOwe()));
         return view;
     }
 }

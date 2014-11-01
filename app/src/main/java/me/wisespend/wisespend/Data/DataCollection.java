@@ -22,7 +22,7 @@ public class DataCollection {
         //addDebtor(new Debtor("ruichao", R.drawable.download, 30));
         //addDebtor(new Debtor("testing", R.drawable.download1, 40));
         addDebtor(new Friend("arun",R.drawable.ic_launcher,50,"as;ldkfj@mail.com","612516267"));
-        addDebtor(new Company("paypal",R.drawable.mario,500,800));
+        addDebtor(new Company("paypal",R.drawable.mario,-500,800));
     }
     public List<Debtor> getDebtor(){
         return debtors;
