@@ -33,9 +33,9 @@ public class MainActivity extends ListActivity{
 
 
         // get data and display to the main list
-        ArrayAdapter<Debtor> adapter = new ArrayAdapter<Debtor>(this,android.R.layout.simple_list_item_1
+        DetailArrayAdaptor adaptor = new DetailArrayAdaptor(this,android.R.layout.simple_list_item_1
         ,Debtors);
-        setListAdapter(adapter);
+        setListAdapter(adaptor);
 
 
         setContentView(R.layout.activity_main);
@@ -80,7 +80,8 @@ public class MainActivity extends ListActivity{
         intent.putExtra("name",debtor.getName());
 
         intent.putExtra("img",debtor.getImage());
-        intent.putExtra("MoneyOwe",debtor.getMoneyOwe());
+        intent.putExtra("MoneyOwe",debtor.toString());
+
         startActivity(intent);
     }
 }

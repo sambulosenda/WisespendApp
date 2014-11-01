@@ -5,10 +5,10 @@
     android:orientation="vertical"
     tools:context=".ListActivity123" >
 
-    <ListView
+    <TextView
         android:id="@+id/months_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </ListView>
+    </TextView>
 
 </LinearLayout>

@@ -22,7 +22,7 @@ public class DetailActivities extends Activity {
 
         String name = extras.getString("name");
         int image = extras.getInt("img",0);
-        int moneyOwe = extras.getInt("MoneyOwe",0);
+        String moneyOwe = extras.getString("MoneyOwe");
 
         TextView tv = (TextView) findViewById(R.id.textView);
         tv.setText(name);
@@ -31,7 +31,7 @@ public class DetailActivities extends Activity {
         img.setImageResource(image);
 //
         TextView info = (TextView) findViewById(R.id.textView1);
-        info.setText("money owe"+moneyOwe);
+        info.setText(moneyOwe);
 //        Log.d("name", ""+name);
 //
 //        Log.d("money", ""+moneyOwe);
