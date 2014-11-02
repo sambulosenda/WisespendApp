@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/wisespend"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -18,8 +18,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
-                <action android:name="android.intent.action.SENDTO"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"  />
                 <data android:scheme="wisespend" />
             </intent-filter>
         </activity>
