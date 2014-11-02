@@ -46,6 +46,11 @@ public class MainActivity extends ListActivity{
         }
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+        Uri data = intent.getData();
+        Log.d(null,"Jakob1234: "+data)
+
+
     }
     protected void onResume(){
         super.onResume();
