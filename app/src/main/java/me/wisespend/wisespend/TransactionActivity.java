@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class Transaction extends Activity {
+public class TransactionActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
