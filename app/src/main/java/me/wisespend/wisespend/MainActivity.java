@@ -28,7 +28,7 @@ import static android.view.View.OnClickListener;
 
 
 public class MainActivity extends ListActivity{
-    static DataCollection dataCollection =new DataCollection();
+    static DataCollection dataCollection = null;
 
     EditText nameTxt;
     Button contact;
@@ -36,7 +36,15 @@ public class MainActivity extends ListActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(savedInstanceState == null && dataCollection == null){
+            dataCollection=new DataCollection();
+        }
+        else if(dataCollection == null){
+            dataCollection = (DataCollection)savedInstanceState.getSerializeable("debtors");
+        }
+        dataCollection = (dataCollection)(savedInstanceState.)
         super.onCreate(savedInstanceState);
+
     }
     protected void onResume(){
         super.onResume();
@@ -73,9 +81,7 @@ public class MainActivity extends ListActivity{
                                 if(which==2)
                                     return; //cancel
                                 else if(which==1){
-                                    Log.v(null,"Hello");
                                     Intent intent = new Intent(MainActivity.this,OrganizationActivity.class);
-                                    Log.v(null,"Hello again");
                                     startActivity(intent);
                                 }
                                 else{
@@ -108,4 +114,12 @@ public class MainActivity extends ListActivity{
 
         startActivity(intent);
     }
+
+    @Override
+    protected void onSaveInstanceState (Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putSerializeable("debtors",dataCollection);
+    }
+
 }
