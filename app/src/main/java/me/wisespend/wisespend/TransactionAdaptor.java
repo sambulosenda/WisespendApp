@@ -38,6 +38,8 @@ public class TransactionAdaptor extends ArrayAdapter<Transaction> {
 
         TextView tv = (TextView) view.findViewById(R.id.months_list);
         tv.setText(transaction.aDebtor.getName());
+        TextView money = (TextView) view.findViewById(R.id.money);
+        money.setText("" + (transaction.moneyTransfer));
 
 
         return view;

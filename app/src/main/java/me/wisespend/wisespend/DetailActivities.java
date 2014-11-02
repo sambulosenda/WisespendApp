@@ -36,14 +36,14 @@ public class DetailActivities extends ListActivity {
         //set content for detail
         setContentView(R.layout.activity_detail_activities);
 
-        TextView tv = (TextView) findViewById(R.id.textView);
+        TextView tv = (TextView) findViewById(R.id.name);
         tv.setText(name);
 
 //        ImageView img = (ImageView) findViewById((R.id.imageView));
 //        img.setImageResource(image);
 //
-        TextView info = (TextView) findViewById(R.id.textView1);
-        info.setText(moneyOwe);
+//        TextView info = (TextView) findViewById(R.id.textView1);
+//        info.setText(moneyOwe);
 //        Log.d("name", ""+name);
 //
 //        Log.d("money", ""+moneyOwe);
