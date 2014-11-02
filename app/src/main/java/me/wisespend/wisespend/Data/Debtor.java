@@ -16,4 +16,15 @@ public class Debtor {
     public String getName(){
         return name;
     }
+
+    public int getMoneyOwe() {
+        return moneyOwe;
+    }
+
+
+    public int getImageicon() {
+
+
+        return imageicon;
+    }
 }

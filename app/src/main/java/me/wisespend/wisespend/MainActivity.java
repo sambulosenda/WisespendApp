@@ -6,22 +6,35 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import me.wisespend.wisespend.Data.Debtor;
 
 import static android.view.View.OnClickListener;
 
 
 public class MainActivity extends Activity {
 
-
+    EditText nameTxt;
     Button contact;
     int counter;
-
+    static ArrayList<Debtor> contacts = new ArrayList<Debtor>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+
+
+
 
         contact = (Button) findViewById(R.id.Contact);
         contact.setOnClickListener(new OnClickListener() {
@@ -34,11 +47,14 @@ public class MainActivity extends Activity {
                             public void onClick(DialogInterface dialog, int which) {
                                 if(which==2)
                                     return; //cancel
-                                else {
-
-                                    Intent intent;
-                                    intent = new Intent(MainActivity.this,NewContactActivity.class);
-                                    intent.putExtra("type",which);
+                                else if(which==1){
+                                    Log.v(null,"Hello");
+                                    Intent intent = new Intent(MainActivity.this,OrganizationActivity.class);
+                                    Log.v(null,"Hello again");
+                                    startActivity(intent);
+                                }
+                                else{
+                                    Intent intent = new Intent(MainActivity.this,NewContactActivity.class);
                                     startActivity(intent);
                                 }
                             }

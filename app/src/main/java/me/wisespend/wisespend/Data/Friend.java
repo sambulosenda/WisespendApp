@@ -19,4 +19,22 @@ public class Friend extends Debtor {
         super(name, imageicon, money);
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setMobile(String mobile) {
+
+        this.mobile = mobile;
+    }
+
+    public String getMobile() {
+
+        return mobile;
+    }
+
+    public String getEmail() {
+
+        return email;
+    }
 }
