@@ -38,17 +38,15 @@ public class MainActivity extends ListActivity{
     protected void onCreate(Bundle savedInstanceState) {
         if(savedInstanceState == null && dataCollection == null){
             dataCollection=new DataCollection();
-            Log.w(null,"Aasdfas");
         }
         else if(dataCollection == null){
             dataCollection = (DataCollection)savedInstanceState.getSerializable("debtors");
-            Log.w(null,"Basdfasdf");
         }
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
         Uri data = intent.getData();
-        Log.d(null,"Jakob1234: "+data);
+        dealWithURI(data);
 
 
     }
@@ -127,6 +125,10 @@ public class MainActivity extends ListActivity{
     {
         super.onSaveInstanceState(outState);
         outState.putSerializable("debtors",dataCollection);
+    }
+
+    private void dealWithURI(Uri uri){
+        Log.v("The URI is "+uri);
     }
 
 }
