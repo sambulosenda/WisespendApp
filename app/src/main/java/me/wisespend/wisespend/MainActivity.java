@@ -5,6 +5,7 @@ package me.wisespend.wisespend;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -36,13 +37,13 @@ public class MainActivity extends ListActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if(savedInstanceState == null && dataCollection == null){
             dataCollection=new DataCollection();
         }
         else if(dataCollection == null){
             dataCollection = (DataCollection)savedInstanceState.getSerializable("debtors");
         }
-        super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
         Uri data = intent.getData();

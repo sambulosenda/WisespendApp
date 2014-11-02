@@ -36,6 +36,7 @@ public class DataCollection implements Serializable {
         addDebtor(new Company("paypal",R.drawable.mario,-500,800));
         for(Debtor aDebtor :debtors){
             aDebtor.addTransaction(new Transaction(new Date(),debtor,100));
+            aDebtor.addTransaction(new Transaction(new Date(),debtor,200));
         }
 
 
