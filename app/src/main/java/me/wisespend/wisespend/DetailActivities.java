@@ -1,6 +1,7 @@
 package me.wisespend.wisespend;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,15 +10,17 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
+import me.wisespend.wisespend.Data.Transaction;
 import me.wisespend.wisespend.Data.TransactionHistory;
 
 
-public class DetailActivities extends Activity {
+public class DetailActivities extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_activities);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle extras = getIntent().getExtras();
@@ -25,13 +28,19 @@ public class DetailActivities extends Activity {
         String name = extras.getString("name");
         int image = extras.getInt("img",0);
         String moneyOwe = extras.getString("MoneyOwe");
-
+        List<Transaction> transactionList  = (List<Transaction>) extras.get("transaction");
+        //populate the list view
+        TransactionAdaptor adaptor = new TransactionAdaptor(this,android.R.layout.simple_list_item_1
+                ,transactionList);
+        setListAdapter(adaptor);
+        //set content for detail
+        setContentView(R.layout.activity_detail_activities);
 
         TextView tv = (TextView) findViewById(R.id.textView);
         tv.setText(name);
 
-        ImageView img = (ImageView) findViewById((R.id.imageView));
-        img.setImageResource(image);
+//        ImageView img = (ImageView) findViewById((R.id.imageView));
+//        img.setImageResource(image);
 //
         TextView info = (TextView) findViewById(R.id.textView1);
         info.setText(moneyOwe);

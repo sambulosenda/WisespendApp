@@ -20,6 +20,18 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.35"
         />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:id="@android:id/list"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+
+    </ListView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
