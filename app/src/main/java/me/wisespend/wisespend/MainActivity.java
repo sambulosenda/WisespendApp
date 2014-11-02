@@ -104,6 +104,7 @@ public class MainActivity extends ListActivity{
         intent.putExtra("name",debtor.getName());
 
         intent.putExtra("img",debtor.getImage());
+        intent.putExtra("transaction",debtor.getTransactionHistory());
         intent.putExtra("MoneyOwe",debtor.toString());
 
         startActivity(intent);

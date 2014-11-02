@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import me.wisespend.wisespend.Data.TransactionHistory;
+
 
 public class DetailActivities extends Activity {
 
@@ -23,6 +25,7 @@ public class DetailActivities extends Activity {
         String name = extras.getString("name");
         int image = extras.getInt("img",0);
         String moneyOwe = extras.getString("MoneyOwe");
+
 
         TextView tv = (TextView) findViewById(R.id.textView);
         tv.setText(name);

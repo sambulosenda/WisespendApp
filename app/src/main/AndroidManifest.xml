@@ -17,11 +17,12 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="wisespend"/>
-            </intent-filter>
 
+                <data android:scheme="wisespend" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".NewContactActivity"
@@ -44,6 +45,10 @@
         <activity
             android:name=".DetailActivities"
             android:label="@string/title_activity_detail_activities" >
+        </activity>
+        <activity
+            android:name=".Transaction"
+            android:label="@string/title_activity_transaction" >
         </activity>
     </application>
 
