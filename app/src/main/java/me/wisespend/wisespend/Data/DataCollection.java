@@ -9,7 +9,7 @@ import me.wisespend.wisespend.R;
 /**
  * Created by ruichaozhang on 14-11-01.
  */
-public class DataCollection {
+public class DataCollection implements Serializeable {
     private List<Debtor> debtors = new ArrayList<Debtor>();
     public List<Debtor> getDebtors(){
         return debtors;
