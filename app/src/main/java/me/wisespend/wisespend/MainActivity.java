@@ -38,11 +38,12 @@ public class MainActivity extends ListActivity{
     protected void onCreate(Bundle savedInstanceState) {
         if(savedInstanceState == null && dataCollection == null){
             dataCollection=new DataCollection();
+            Log.w(null,"Aasdfas");
         }
         else if(dataCollection == null){
-            dataCollection = (DataCollection)savedInstanceState.getSerializeable("debtors");
+            dataCollection = (DataCollection)savedInstanceState.getSerializable("debtors");
+            Log.w(null,"Basdfasdf");
         }
-        dataCollection = (dataCollection)(savedInstanceState.)
         super.onCreate(savedInstanceState);
 
     }
@@ -120,7 +121,7 @@ public class MainActivity extends ListActivity{
     protected void onSaveInstanceState (Bundle outState)
     {
         super.onSaveInstanceState(outState);
-        outState.putSerializeable("debtors",dataCollection);
+        outState.putSerializable("debtors",dataCollection);
     }
 
 }

@@ -3,13 +3,14 @@ package me.wisespend.wisespend.Data;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.io.Serializable;
 
 import me.wisespend.wisespend.R;
 
 /**
  * Created by ruichaozhang on 14-11-01.
  */
-public class DataCollection implements Serializeable {
+public class DataCollection implements Serializable {
     private List<Debtor> debtors = new ArrayList<Debtor>();
     public List<Debtor> getDebtors(){
         return debtors;
