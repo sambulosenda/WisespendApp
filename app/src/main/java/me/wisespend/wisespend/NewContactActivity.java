@@ -18,9 +18,10 @@ public class NewContactActivity extends Activity{
 
 
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.newcontact);
         EditText nameTxt = (EditText)findViewById(R.id.txtFriendName);
 
-        final Button addBtn = (Button) findViewById(R.id.btnAdd);
+        final Button addBtn = (Button) findViewById(R.id.btnAdd1);
         nameTxt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -41,7 +42,7 @@ public class NewContactActivity extends Activity{
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.contacts.add(new Friend(
+                MainActivity.dataCollection.getDebtors().add(new Friend(
                         ((EditText)findViewById(R.id.txtFriendName)).getText().toString()
                         ,R.drawable.ic_launcher,0,
                         ((EditText)findViewById(R.id.txtEmail)).getText().toString(),

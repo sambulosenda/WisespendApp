@@ -37,13 +37,17 @@ public class MainActivity extends ListActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+    protected void onResume(){
+        super.onResume();
+
         List<Debtor> debtors = dataCollection.getDebtors();
         int totalAmount = dataCollection.getTotal();
 
 
         // get data and display to the main list
         DetailArrayAdaptor adaptor = new DetailArrayAdaptor(this,android.R.layout.simple_list_item_1
-        ,Debtors);
+        ,debtors);
         setListAdapter(adaptor);
 
         setContentView(R.layout.activity_main);
