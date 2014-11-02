@@ -37,20 +37,20 @@ public class MainActivity extends ListActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if(savedInstanceState == null && dataCollection == null){
             dataCollection=new DataCollection();
-            Log.w(null,"Aasdfas");
         }
         else if(dataCollection == null){
             dataCollection = (DataCollection)savedInstanceState.getSerializable("debtors");
-            Log.w(null,"Basdfasdf");
         }
-        super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
         Uri data = intent.getData();
-        Log.d(null,"Jakob1234: "+data);
-
+        if(!intent.getCategories().contains(Intent.CATEGORY_LAUNCHER))
+        {
+            Log.v(null,"Deal with "+data);
+        }
 
     }
     protected void onResume(){
