@@ -1,13 +1,12 @@
 package me.wisespend.wisespend;
 
-import android.app.Activity;
+
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,25 +15,47 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import android.app.ListActivity;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.List;
+
+import me.wisespend.wisespend.Data.DataCollection;
 import me.wisespend.wisespend.Data.Debtor;
 
 import static android.view.View.OnClickListener;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity{
+    static DataCollection dataCollection =new DataCollection();
 
     EditText nameTxt;
     Button contact;
     int counter;
-    static ArrayList<Debtor> contacts = new ArrayList<Debtor>();
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        List<Debtor> debtors = dataCollection.getDebtors();
+        int totalAmount = dataCollection.getTotal();
+
+
+        // get data and display to the main list
+        DetailArrayAdaptor adaptor = new DetailArrayAdaptor(this,android.R.layout.simple_list_item_1
+        ,Debtors);
+        setListAdapter(adaptor);
 
         setContentView(R.layout.activity_main);
 
+        if(totalAmount>0){
+            TextView tv = (TextView) findViewById(R.id.textView);
+            tv.setText("They owe");
+        }
 
+        TextView money = (TextView) findViewById(R.id.textView2);
 
-
+        money.setText(""+totalAmount);
 
         contact = (Button) findViewById(R.id.Contact);
         contact.setOnClickListener(new OnClickListener() {
@@ -70,4 +91,17 @@ public class MainActivity extends Activity {
 
     }
 
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        //get debtor position
+        Debtor debtor = dataCollection.getDebtors().get(position);
+        Intent intent =  new Intent(MainActivity.this, DetailActivities.class);
+        intent.putExtra("name",debtor.getName());
+
+        intent.putExtra("img",debtor.getImage());
+        intent.putExtra("MoneyOwe",debtor.toString());
+
+        startActivity(intent);
+    }
 }
